@@ -1,45 +1,27 @@
 import React from 'react';
-import Fade from 'react-reveal/Fade';
 import styled from '@emotion/styled';
 import { MainHeader } from '../components/MainHeader';
 import { FirstMain } from '../components/Main/FirstMain';
 import { SecondMain } from '../components/Main/SecondMain';
 import { ThirdMain } from '../components/Main/ThirdMain';
 import { ForthMain } from '../components/Main/ForthMain';
-import { useState, useRef } from 'react';
-import { useEffect } from 'react';
+
 const MainIndexPage = () => {
-  const test = useRef(null);
-  let [testY, setTestY] = useState(0);
-  let [comparisionY, setComparisionY] = useState([0]);
-  function onScroll() {
-    setTestY((testY = window.scrollY));
-    if (testY < comparisionY[0]) {
-    } else if (testY > comparisionY[0]) {
-    }
-    setComparisionY(comparisionY.splice(0, 1, testY));
-  }
   return (
-    <>
+    <Container>
       <MainHeader />
       <MainPage>
-        <Fade left>
-          <FirstMain />
-        </Fade>
-        <Fade right>
-          <SecondMain />
-        </Fade>
-        <Fade left>
-          <ThirdMain />
-        </Fade>
-        <Fade bottom>
-          <ForthMain />
-        </Fade>
+        <FirstMain />
+        <SecondMain />
+        <ThirdMain />
+        <ForthMain />
       </MainPage>
-    </>
+    </Container>
   );
 };
+const Container = styled.section``;
 const MainPage = styled.section`
+  overflow-y: auto;
   position: relative;
   background-size: cover;
   overflow: hidden;
